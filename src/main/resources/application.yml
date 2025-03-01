@@ -15,18 +15,18 @@ spring:
       enabled: true
       path: /h2-console
       settings:
-        web-allow-others: true # Permitir acceso desde Railway
+        web-allow-others: true
 
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URL:http://eureka-service:8761/eureka}
     register-with-eureka: true
     fetch-registry: true
   instance:
     instance-id: ${spring.application.name}:${server.port}
     prefer-ip-address: true
-    non-secure-port: ${PORT:8080} # Asegurar que se registre en 8080 en Eureka
+    non-secure-port: ${PORT:8080}
 
 server:
   port: ${PORT:8080}
