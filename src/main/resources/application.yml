@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:paymentsdb  # Base de datos en memoria H2
+    url: jdbc:h2:mem:books_db
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -8,18 +8,15 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
   application:
-    name: ${APP_NAME:ms-books-payments}
+      name: ms-books-catalogue
 
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+      defaultZone: http://eureka-server:8761/eureka
     register-with-eureka: true
     fetch-registry: true
   instance:
     prefer-ip-address: true
-    hostname: ${HOSTNAME:localhost}
-
-server:
-  port: ${PORT:8082}
